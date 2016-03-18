@@ -37,7 +37,7 @@ if ($ftp) {
 	$params = "submit=Generate Backup";
 }
 
-fputs($socket, "POST /frontend/" . $theme . "/backup/dofullbackup.html?" . $params . " HTTP/1.0\r\n");
+fputs($socket, "POST /frontend/" . $theme . "/backup/dofullbackup.html?" . curl_escape ( $params ) . " HTTP/1.0\r\n");
 fputs($socket, "Host: $domain\r\n");
 fputs($socket, "Authorization: Basic $auth\r\n");
 fputs($socket, "Connection: Close\r\n");
